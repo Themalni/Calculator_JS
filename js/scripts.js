@@ -111,11 +111,11 @@ for(i = 0; i < buttons.length; i++){
             }
 
 
-        }else if(operator == "=" && displayBottomRow.value === ""){
+        }else if(operator == "="){
           result = eval(digits);
           displayBottomRow.style.fontSize = "1.4em";
             if(decimal){
-              var round = result.toFixed(7);
+              var round = result.toFixed(5);
               displayBottomRow.value = "=" + round;
               reset = true;
               decimal = true;
@@ -124,7 +124,6 @@ for(i = 0; i < buttons.length; i++){
               reset = true;
               decimal = false;
             }
-
 
         }
 
