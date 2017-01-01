@@ -95,10 +95,14 @@ for(i = 0; i < buttons.length; i++){
             }
             // allow operator to replace each other
             // not working!!!
-            if(lastChar === operator){
-              var replaced = digits.replace(/.$/, operator);
+
+            if(lastChar == operator){
+              var replaced = digits.slice(0, -1) + operator;
+
+              /*digits = digits.slice(0, lastChar);
+              var replaced = digits.replace(/.$/, "b");*/
+
               displayTopRow.value = replaced;
-              console.log("double operator");
             }
             // allow minus in front of string
             if(digits == "" && operator == "-"){
