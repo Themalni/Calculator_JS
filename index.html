@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculator made using HTML CSS and JavaScript">
+  <meta name="author" content="Dina Blaszczak">
+
+  <title>Calculator</title>
+
+  <link rel="stylesheet" type="text/css" href="css/normalize.css"/><!-- reset for browsers -->
+  <link rel="stylesheet" type="text/css" href="css/main.css"/><!-- custom stylesheet -->
+  <link rel="stylesheet" media="screen" href="css/media.css"/><!-- mobile stylesheet -->
+  <link rel="stylesheet" media="screen" href="css/font-awesome.min.css"/><!-- font awesome stylesheet -->
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+
+</head>
+<body>
+  <div class="calc-container">
+    <div class="calc">
+
+      <div class="calc-buttons">
+
+        <div class="calc-display">
+          <textarea class="calc-display__digits-top"></textarea>
+          <input type="text" class="calc-display__digits-bottom"></input>
+        </div>
+
+        <div class="calc-button calc-button__orange" data-button="C">C</div>
+        <div class="calc-button calc-button__operators" data-operator="/">&divide;</div>
+        <div class="calc-button calc-button__operators" data-operator="*">&times;</div>
+        <div class="calc-button calc-button__orange" data-button="step-back">|&larr;</div>
+
+        <div class="calc-button" data-key="7">7</div>
+        <div class="calc-button" data-key="8">8</div>
+        <div class="calc-button" data-key="9">9</div>
+        <div class="calc-button calc-button__operators" data-operator="-">-</div>
+        <div class="calc-button" data-key="4">4</div>
+        <div class="calc-button" data-key="5">5</div>
+        <div class="calc-button" data-key="6">6</div>
+        <div class="calc-button calc-button__operators" data-operator="+">+</div>
+        <div class="calc-button" data-key="1">1</div>
+        <div class="calc-button" data-key="2">2</div>
+        <div class="calc-button" data-key="3">3</div>
+        <div class="calc-button calc-button__vertical calc-button__operators" data-operator="=">=</div>
+        <div class="calc-button calc-button__horizon" data-key="0">0</div>
+        <div class="calc-button" data-key=".">.</div>
+
+
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" src="js/scripts.js"></script><!-- javaScript -->
+
+</body>
+</html>
