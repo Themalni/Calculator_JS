@@ -11,7 +11,7 @@
   .calc-button {
     font-size: 1.4em;
     max-height: 30px;
-    padding: 8px 0;
+    padding: 10px 0 8px;
     margin: 0.22em;
   }
   .calc-button__horizon {
