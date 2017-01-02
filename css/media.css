@@ -19,13 +19,13 @@
     height: 30px;
   }
   .calc-button__vertical {
-    padding: 38px 0;
+    padding: 39px 0;
   }
   .calc-button:nth-last-child(1) {
-    margin-top: -53px;
+    margin-top: -55px;
   }
   .calc-button:nth-last-child(2) {
-    margin-top: -53px;
+    margin-top: -55px;
     margin-left: -55px;
   }
   .footer-copyright {
