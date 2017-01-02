@@ -9,7 +9,6 @@ var digits = "";
 var result = "";
 var reset = false;
 var decimal = false;
-var operatorFound = false;
 var i;
 
 for(i = 0; i < buttons.length; i++){
@@ -21,6 +20,8 @@ for(i = 0; i < buttons.length; i++){
             clearData();
           }else if(buttonVal == "step-back"){
             removeOneDigit();
+          }else if(reset){
+            resetValues(e);
           }else{
             displayDigits(e);
           }
@@ -46,20 +47,20 @@ for(i = 0; i < buttons.length; i++){
         }
     }
 
+  // reset all values
+  function resetValues(e){
+    digits = "";
+    displayTopRow.value = "0";
+    displayBottomRow.value = "";
+    reset = false;
+    decimal = false;
+  }
+
    // display digits
    function displayDigits(e){
      buttonVal = e.target.dataset.key;
      var operator = e.target.dataset.operator;
      var lastChar = digits.charAt(digits.length -1);
-
-     // reset display for new operation
-     if(reset){
-         digits = "";
-         displayTopRow.value = "0";
-         displayBottomRow.value = "";
-         reset = false;
-         decimal = false;
-     }
 
      // add new values to string
        if(buttonVal && digits.length < 38){
@@ -97,14 +98,14 @@ for(i = 0; i < buttons.length; i++){
             // allow operator to replace each other
             // not working!!!
 
-            if(lastChar == "+" || lastChar == "*" || lastChar == "/" && operatorFound){
+            if(lastChar == "+" || lastChar == "*" || lastChar == "/"){
               digits = digits.slice(0, -1);
               /*var replaced = digits.replace(/.$/, operator);*/
             /*  replaced = replaced.slice(0, -1);
               replaced += operator;*/
 
               displayTopRow.value = digits;
-              operatorFound = true;
+
             }
             // allow minus in front of string
             if(digits == "" && operator == "-"){
@@ -115,22 +116,15 @@ for(i = 0; i < buttons.length; i++){
         }else if(operator == "="){
           result = eval(digits);
           displayBottomRow.style.fontSize = "1.4em";
-            if(decimal){
-              var round = result.toFixed(5);
+
+            if(result % 1 != 0 || decimal == true){
+              var round = result.toFixed(2);
               displayBottomRow.value = "=" + round;
-              reset = true;
-              decimal = true;
-              operatorFound = false;
             }else{
               displayBottomRow.value = "=" + result;
-              reset = true;
-              decimal = false;
-              operatorFound = false;
             }
-
+          reset = true;
+          decimal = true;
         }
 
 }
-
-// don't allow operators to chain is not working
-// don't allow new operations after result is displayed
