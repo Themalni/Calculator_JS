@@ -9,6 +9,7 @@ var digits = "";
 var result = "";
 var reset = false;
 var decimal = false;
+var operatorFound = false;
 var i;
 
 for(i = 0; i < buttons.length; i++){
@@ -96,20 +97,20 @@ for(i = 0; i < buttons.length; i++){
             // allow operator to replace each other
             // not working!!!
 
-            if(lastChar == operator){
-              var replaced = digits.slice(0, -1) + operator;
+            if(lastChar == "+" || lastChar == "*" || lastChar == "/" && operatorFound){
+              digits = digits.slice(0, -1);
+              /*var replaced = digits.replace(/.$/, operator);*/
+            /*  replaced = replaced.slice(0, -1);
+              replaced += operator;*/
 
-              /*digits = digits.slice(0, lastChar);
-              var replaced = digits.replace(/.$/, "b");*/
-
-              displayTopRow.value = replaced;
+              displayTopRow.value = digits;
+              operatorFound = true;
             }
             // allow minus in front of string
             if(digits == "" && operator == "-"){
               digits += operator;
               displayTopRow.value = digits;
             }
-
 
         }else if(operator == "="){
           result = eval(digits);
@@ -119,10 +120,12 @@ for(i = 0; i < buttons.length; i++){
               displayBottomRow.value = "=" + round;
               reset = true;
               decimal = true;
+              operatorFound = false;
             }else{
               displayBottomRow.value = "=" + result;
               reset = true;
               decimal = false;
+              operatorFound = false;
             }
 
         }
