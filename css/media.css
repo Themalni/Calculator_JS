@@ -15,7 +15,7 @@
     margin: 0.22em;
   }
   .calc-button__operators {
-    font-weight: normal;
+    font-weight: 300;
   }
   .calc-button__horizon {
     width: 112px;
