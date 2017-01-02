@@ -1,0 +1,38 @@
+@media screen and (min-width: 320px) and (max-width: 640px){
+  .header-description {
+    max-width: 90%;
+    margin: 1.5em auto 0;
+    font-size: 1.3em;
+    color: #b3e6ff;
+  }
+  .calc-display__digits-top {
+    font-size: 1.3em;
+  }
+  .calc-button {
+    font-size: 1.4em;
+    max-height: 30px;
+    padding: 8px 0;
+    margin: 0.22em;
+  }
+  .calc-button__horizon {
+    width: 114px;
+    height: 30px;
+  }
+  .calc-button__vertical {
+    padding: 37px 0;
+  }
+  .calc-button:nth-last-child(1) {
+    margin-top: -52px;
+  }
+  .calc-button:nth-last-child(2) {
+    margin-top: -52px;
+    margin-left: -55px;
+  }
+  .footer-copyright {
+    font-size: 1.3em;
+  }
+  .fa.fa-lg {
+    margin: 0 0.1em;
+    font-size: 1.8em;
+  }
+}
