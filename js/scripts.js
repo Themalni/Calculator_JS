@@ -11,6 +11,7 @@ var reset = false;
 var decimal = false;
 var i;
 
+// listening for a button click
 for(i = 0; i < buttons.length; i++){
   var clickedBtn = buttons[i];
 
@@ -21,7 +22,7 @@ for(i = 0; i < buttons.length; i++){
           }else if(buttonVal == "step-back"){
             removeOneDigit();
           }else if(reset){
-            resetValues(e);
+            resetValues();
           }else{
             displayDigits(e);
           }
@@ -48,7 +49,7 @@ for(i = 0; i < buttons.length; i++){
     }
 
   // reset all values
-  function resetValues(e){
+  function resetValues(){
     digits = "";
     displayTopRow.value = "0";
     displayBottomRow.value = "";
@@ -89,30 +90,23 @@ for(i = 0; i < buttons.length; i++){
             decimal = false;
 
             // don't allow operators to start a string
-            if(digits !== "" && lastChar !== operator){
+            if(digits !== ""){
               digits += operator;
               displayTopRow.value = digits;
-            }else{
-              displayTopRow.value = "0";
             }
-            // allow operator to replace each other
-            // not working!!!
 
-            if(lastChar == "+" || lastChar == "*" || lastChar == "/"){
+            // don't allow operators to chain
+            if(lastChar == "+" || lastChar == "*" || lastChar == "/" || lastChar == "-"){
               digits = digits.slice(0, -1);
-              /*var replaced = digits.replace(/.$/, operator);*/
-            /*  replaced = replaced.slice(0, -1);
-              replaced += operator;*/
-
               displayTopRow.value = digits;
-
             }
-            // allow minus in front of string
+
+            // allow minus in to start a string
             if(digits == "" && operator == "-"){
               digits += operator;
               displayTopRow.value = digits;
             }
-
+        // display result
         }else if(operator == "="){
           result = eval(digits);
           displayBottomRow.style.fontSize = "1.4em";
