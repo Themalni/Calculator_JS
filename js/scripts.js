@@ -10,9 +10,10 @@ var result = "";
 var reset = false;
 var decimal = false;
 var i;
+var buttonsLength = buttons.length;
 
 // listening for a button click
-for(i = 0; i < buttons.length; i++){
+for(i = 0; i < buttonsLength; i++){
   var clickedBtn = buttons[i];
 
       clickedBtn.addEventListener("click", function(e){
