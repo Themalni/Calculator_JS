@@ -18,7 +18,7 @@ for(i = 0; i < buttons.length; i++){
       clickedBtn.addEventListener("click", function(e){
           buttonVal = e.target.dataset.button;
           if(buttonVal == "C"){
-            clearData();
+            resetValues();
           }else if(buttonVal == "step-back"){
             removeOneDigit();
           }else if(reset){
@@ -28,14 +28,6 @@ for(i = 0; i < buttons.length; i++){
           }
       });
 }
-
-  // clear display
-    function clearData(e){
-      digits = "";
-      displayTopRow.value = "0";
-      displayBottomRow.value = "";
-      decimal = false;
-    }
 
   // one step back
     function removeOneDigit(e){
@@ -48,8 +40,8 @@ for(i = 0; i < buttons.length; i++){
         }
     }
 
-  // reset all values
-  function resetValues(){
+  // reset all values and clear display
+  function resetValues(e){
     digits = "";
     displayTopRow.value = "0";
     displayBottomRow.value = "";
